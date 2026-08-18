@@ -50,6 +50,70 @@ export const GROUPS = [
   },
 ];
 
+export const MINISTRIES = [
+  {
+    slug: "prayer",
+    title: "Prayer Ministry",
+    summary: "Intercession and prayer teams covering our church and city.",
+    description:
+      "Our Prayer Ministry exists to seek God on behalf of our church, our city, and the nations. Whether it's early morning intercession, corporate prayer nights, or standing with someone through a personal need, this team believes prayer changes things.",
+    meetingInfo: "Fridays · 6:30 AM · Sanctuary / Online",
+    leader: "Pastor Ruth",
+    hasVideo: false,
+  },
+  {
+    slug: "worship",
+    title: "Worship Ministry",
+    summary: "Leading our church into God's presence through music.",
+    description:
+      "The Worship Ministry leads Palace Church into God's presence through music, creativity, and excellence. If you sing, play an instrument, or serve on production, there's a place for you on this team.",
+    meetingInfo: "Wednesdays · 8:00 PM · Church Premises",
+    leader: "Pastor Akin",
+    hasVideo: true,
+  },
+  {
+    slug: "childrens",
+    title: "Children's Ministry",
+    summary: "A safe, fun place for kids to know and love Jesus.",
+    description:
+      "Our Children's Ministry gives kids a safe, fun, age-appropriate environment to learn about Jesus every Sunday. Trained volunteers lead worship, lessons, and activities so parents can enjoy the service knowing their kids are cared for.",
+    meetingInfo: "Sundays · 10:00 AM · Kids Wing",
+    leader: "",
+    hasVideo: false,
+  },
+  {
+    slug: "young-adults",
+    title: "Young Adults",
+    summary: "Building community for young adults chasing purpose.",
+    description:
+      "Young Adults is a community for anyone in their late teens through thirties chasing purpose, navigating life transitions, and growing in faith together — through weekly gatherings, prayer, and friendship.",
+    meetingInfo: "Wednesdays · 8:00 PM · Online and In-Person",
+    leader: "Pastor Eugene",
+    hasVideo: false,
+  },
+  {
+    slug: "outreach",
+    title: "Outreach",
+    summary: "Serving and loving our neighbors in Stoughton and beyond.",
+    description:
+      "Outreach is how Palace Church puts love into action — serving our neighbors in Stoughton through food drives, community events, and partnerships with local organizations.",
+    meetingInfo: "Monthly · Various Locations",
+    leader: "",
+    hasVideo: false,
+  },
+  {
+    slug: "families",
+    title: "Families",
+    summary:
+      "Resources and community to help families grow in faith together.",
+    description:
+      "The Families ministry connects parents and caregivers with resources, community, and encouragement to help their households grow in faith together, at every stage of life.",
+    meetingInfo: "Wednesdays · 8:00 PM · Church Premises",
+    leader: "Pastor Akin",
+    hasVideo: false,
+  },
+];
+
 export const GIVING_PLATFORMS = [
   {
     id: "cashapp",

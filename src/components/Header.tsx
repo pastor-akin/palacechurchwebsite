@@ -38,12 +38,35 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link
-          href="/give"
-          className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition hover:bg-primary-dark"
-        >
-          Give
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/login"
+            aria-label="Log In"
+            title="Log In"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-surface-border text-text-secondary transition hover:border-primary-light hover:text-foreground"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              <path d="M20 21a8 8 0 0 0-16 0" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </Link>
+
+          <Link
+            href="/give"
+            className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition hover:bg-primary-dark"
+          >
+            Give
+          </Link>
+        </div>
       </div>
     </header>
   );

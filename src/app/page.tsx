@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { GROUPS, SERVICE_TIMES } from "@/lib/data";
+import { GROUPS, MINISTRIES, SERVICE_TIMES } from "@/lib/data";
 
 const EXPERIENCES = [
   {
@@ -27,33 +27,6 @@ const EXPERIENCES = [
   },
 ];
 
-const MINISTRIES = [
-  {
-    title: "Prayer Ministry",
-    description: "Intercession and prayer teams covering our church and city.",
-  },
-  {
-    title: "Worship Ministry",
-    description: "Leading our church into God's presence through music.",
-  },
-  {
-    title: "Children's Ministry",
-    description: "A safe, fun place for kids to know and love Jesus.",
-  },
-  {
-    title: "Young Adults",
-    description: "Building community for young adults chasing purpose.",
-  },
-  {
-    title: "Outreach",
-    description: "Serving and loving our neighbors in Stoughton and beyond.",
-  },
-  {
-    title: "Families",
-    description: "Resources and community to help families grow in faith together.",
-  },
-];
-
 export default function Home() {
   return (
     <>
@@ -63,13 +36,16 @@ export default function Home() {
         {/* Hero */}
         <section className="relative isolate overflow-hidden">
           <div className="absolute inset-0 -z-10">
-            <Image
-              src="/images/hero-worship.jpg"
-              alt="Palace Church worship service"
-              fill
-              priority
-              className="object-cover opacity-70"
-            />
+            <video
+              className="h-full w-full object-cover opacity-70"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/images/hero-worship.jpg"
+            >
+              <source src="/videos/hero-loop.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
           </div>
 
@@ -202,15 +178,14 @@ export default function Home() {
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {MINISTRIES.map((m) => (
-                <div
-                  key={m.title}
-                  className="rounded-2xl border border-surface-border bg-background p-6"
+                <Link
+                  key={m.slug}
+                  href={`/ministries/${m.slug}`}
+                  className="rounded-2xl border border-surface-border bg-background p-6 transition hover:border-primary-light"
                 >
                   <h3 className="mb-2 text-lg font-semibold">{m.title}</h3>
-                  <p className="text-sm text-text-secondary">
-                    {m.description}
-                  </p>
-                </div>
+                  <p className="text-sm text-text-secondary">{m.summary}</p>
+                </Link>
               ))}
             </div>
           </div>
