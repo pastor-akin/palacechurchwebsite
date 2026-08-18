@@ -46,7 +46,7 @@ export default function ConnectCarousel() {
         </p>
       </div>
 
-      <div className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 sm:justify-center sm:px-10">
+      <div className="mt-12 flex snap-x snap-mandatory justify-start gap-5 overflow-x-auto px-6 pb-4 sm:px-10">
         {CARDS.map((card) => (
           <Link
             key={card.id}
