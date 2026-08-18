@@ -68,9 +68,9 @@ export default function Home() {
               alt="Palace Church worship service"
               fill
               priority
-              className="object-cover opacity-40"
+              className="object-cover opacity-70"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
           </div>
 
           <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center">

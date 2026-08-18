@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0D0F14;
-  --foreground: #F4F4F5;
-  --primary: #7C3AED;
-  --primary-light: #A78BFA;
-  --primary-dark: #5B21B6;
-  --surface: #161A23;
-  --surface-elevated: #1E2330;
-  --surface-border: #2A2F3D;
-  --text-secondary: #9AA3B5;
-  --text-muted: #5C6478;
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --primary: #F0501E;
+  --primary-light: #F97A4D;
+  --primary-dark: #C23E14;
+  --surface: #F7F7F8;
+  --surface-elevated: #F0F0F2;
+  --surface-border: #E5E5E8;
+  --text-secondary: #55565C;
+  --text-muted: #8A8B92;
 }
 
 @theme inline {
@@ -34,7 +34,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #A78BFA, #7C3AED);
+  background: linear-gradient(90deg, #F0501E, #F97A4D);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
