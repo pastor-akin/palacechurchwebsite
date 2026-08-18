@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
+import ConnectCarousel from "@/components/ConnectCarousel";
 import { GROUPS, MINISTRIES, SERVICE_TIMES } from "@/lib/data";
 
 const EXPERIENCES = [
@@ -33,50 +35,7 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="relative isolate overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster="/images/hero-worship.jpg"
-            >
-              <source src="/videos/hero-loop.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-background/30 to-background" />
-          </div>
-
-          <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary-light">
-              Stoughton, MA
-            </p>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
-              See what God can do{" "}
-              <span className="gradient-text">through you</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-text-secondary">
-              Palace Church is a community passionate about worship, prayer,
-              and connection. Join us this Sunday at 10:00 AM.
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="#visit"
-                className="rounded-full bg-primary px-8 py-3 font-semibold text-white transition hover:bg-primary-dark"
-              >
-                Plan Your Visit
-              </Link>
-              <Link
-                href="/give"
-                className="rounded-full border border-surface-border px-8 py-3 font-semibold text-foreground transition hover:border-primary-light"
-              >
-                Give
-              </Link>
-            </div>
-          </div>
-        </section>
+        <HeroSection />
 
         {/* Service times strip */}
         <section className="border-y border-surface-border bg-surface">
@@ -91,6 +50,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <ConnectCarousel />
 
         {/* Ways to experience */}
         <section id="about" className="mx-auto max-w-6xl px-6 py-24">
