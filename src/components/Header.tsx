@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { href: "/#groups", label: "Groups" },
   { href: "/#serve", label: "Serve" },
   { href: "/#events", label: "Events" },
-  { href: "/#about", label: "About" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Header() {
