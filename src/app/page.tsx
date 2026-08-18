@@ -37,7 +37,7 @@ export default function Home() {
         <section className="relative isolate overflow-hidden">
           <div className="absolute inset-0 -z-10">
             <video
-              className="h-full w-full object-cover opacity-70"
+              className="h-full w-full object-cover"
               autoPlay
               muted
               loop
@@ -46,7 +46,7 @@ export default function Home() {
             >
               <source src="/videos/hero-loop.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-background/30 to-background" />
           </div>
 
           <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-32 text-center">
