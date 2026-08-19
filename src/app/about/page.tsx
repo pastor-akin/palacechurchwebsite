@@ -43,7 +43,9 @@ const EXPERIENCES = [
 
 export default function AboutPage() {
   const [active, setActive] = useState(SECTIONS[0].id);
+  const [progress, setProgress] = useState(0);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,7 +64,23 @@ export default function AboutPage() {
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    const onScroll = () => {
+      const el = contentRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight * 0.6;
+      const scrolled = window.innerHeight * 0.3 - rect.top;
+      const pct = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0;
+      setProgress(pct);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
@@ -70,21 +88,23 @@ export default function AboutPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary-light">
-            About
-          </p>
-          <h1 className="text-4xl font-bold sm:text-5xl">
-            About Palace Church
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-text-secondary">
-            Everything you need to know about who we are, what to expect, and
-            how to get connected.
-          </p>
-        </section>
-
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 pb-24 lg:grid-cols-[1fr_240px]">
+        <div
+          ref={contentRef}
+          className="mx-auto grid max-w-6xl gap-8 px-6 py-10 lg:grid-cols-[1fr_240px]"
+        >
           <div className="space-y-20">
+            <div className="relative overflow-hidden rounded-3xl">
+              <div className="relative aspect-[16/8] w-full">
+                <Image
+                  src="/images/hero-stage.jpg"
+                  alt="Palace Church worship gathering (placeholder — replace with your own photo)"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+
             <section id="who-we-are" className="scroll-mt-28">
               <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
                 Who We Are
@@ -266,21 +286,30 @@ export default function AboutPage() {
           </div>
 
           <aside className="hidden lg:block">
-            <nav className="sticky top-24 space-y-1 border-l border-surface-border pl-5">
-              {SECTIONS.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className={`block border-l-2 py-1.5 pl-4 -ml-[21px] text-sm transition ${
-                    active === s.id
-                      ? "border-primary font-semibold text-foreground"
-                      : "border-transparent text-text-secondary hover:text-foreground"
-                  }`}
-                >
-                  {s.label}
-                </a>
-              ))}
-            </nav>
+            <div className="sticky top-24 flex items-start gap-4">
+              <nav className="space-y-4 pt-1">
+                <p className="text-base font-bold">About</p>
+                {SECTIONS.map((s) => (
+                  <a
+                    key={s.id}
+                    href={`#${s.id}`}
+                    className={`block text-sm leading-snug transition ${
+                      active === s.id
+                        ? "font-semibold text-foreground"
+                        : "text-text-secondary hover:text-foreground"
+                    }`}
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </nav>
+              <div className="relative h-[420px] w-[3px] flex-shrink-0 rounded-full bg-surface-border">
+                <div
+                  className="absolute left-0 top-0 w-full rounded-full bg-foreground transition-all"
+                  style={{ height: `${Math.max(6, progress * 100)}%` }}
+                />
+              </div>
+            </div>
           </aside>
         </div>
       </main>
