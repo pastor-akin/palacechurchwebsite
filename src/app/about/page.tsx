@@ -44,8 +44,10 @@ const EXPERIENCES = [
 export default function AboutPage() {
   const [active, setActive] = useState(SECTIONS[0].id);
   const [progress, setProgress] = useState(0);
+  const [onDark, setOnDark] = useState(false);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const contentRef = useRef<HTMLDivElement | null>(null);
+  const darkZoneRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,6 +66,12 @@ export default function AboutPage() {
       if (el) observer.observe(el);
     });
 
+    const darkObserver = new IntersectionObserver(
+      ([entry]) => setOnDark(entry.isIntersecting),
+      { rootMargin: "-96px 0px -60% 0px" }
+    );
+    if (darkZoneRef.current) darkObserver.observe(darkZoneRef.current);
+
     const onScroll = () => {
       const el = contentRef.current;
       if (!el) return;
@@ -79,6 +87,7 @@ export default function AboutPage() {
 
     return () => {
       observer.disconnect();
+      darkObserver.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -106,7 +115,35 @@ export default function AboutPage() {
             </div>
 
             <section id="who-we-are" className="scroll-mt-28">
-              <div className="rounded-3xl bg-[#111113] px-6 py-14 text-center text-white sm:px-12 sm:py-20">
+              <div ref={darkZoneRef}>
+              <div className="relative rounded-3xl bg-[#111113] px-6 py-14 text-white sm:px-12 sm:py-16 lg:-mr-[272px] lg:rounded-r-none lg:pr-[300px]">
+                <h2 className="text-2xl font-bold sm:text-3xl">
+                  See What God Can Do Through You
+                </h2>
+                <p className="mt-3 text-lg text-white/70">
+                  We are here to help you deepen your faith and discover your
+                  purpose.
+                </p>
+                <p className="mt-6 leading-relaxed text-white/60">
+                  Since our founding, we&apos;ve witnessed people begin a
+                  relationship with Christ and grow in their faith right here
+                  in {CHURCH_INFO.location}. From meaningful worship to
+                  relatable teaching, you&apos;ll experience hope and
+                  strengthen your faith as you discover who God has made you
+                  to be.
+                </p>
+
+                <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl">
+                  <Image
+                    src="/images/hero-stage.jpg"
+                    alt="Palace Church worship gathering (placeholder — replace with your own photo)"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="relative mt-10 rounded-3xl bg-[#111113] px-6 py-14 text-center text-white sm:px-12 sm:py-20 lg:-mr-[272px] lg:rounded-r-none lg:pr-[300px]">
                 <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/50">
                   Who We Are
                 </p>
@@ -158,32 +195,6 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-
-              <div className="mt-10 rounded-3xl bg-[#111113] px-6 py-14 text-white sm:px-12 sm:py-16">
-                <h2 className="text-2xl font-bold sm:text-3xl">
-                  See What God Can Do Through You
-                </h2>
-                <p className="mt-3 text-lg text-white/70">
-                  We are here to help you deepen your faith and discover your
-                  purpose.
-                </p>
-                <p className="mt-6 leading-relaxed text-white/60">
-                  Since our founding, we&apos;ve witnessed people begin a
-                  relationship with Christ and grow in their faith right here
-                  in {CHURCH_INFO.location}. From meaningful worship to
-                  relatable teaching, you&apos;ll experience hope and
-                  strengthen your faith as you discover who God has made you
-                  to be.
-                </p>
-
-                <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl">
-                  <Image
-                    src="/images/hero-stage.jpg"
-                    alt="Palace Church worship gathering (placeholder — replace with your own photo)"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
               </div>
 
               <div className="mt-10">
@@ -364,16 +375,26 @@ export default function AboutPage() {
             </section>
           </div>
 
-          <aside className="order-1 border-b border-surface-border pb-4 lg:order-2 lg:border-b-0 lg:pb-0">
+          <aside className="relative z-10 order-1 border-b border-surface-border pb-4 lg:order-2 lg:border-b-0 lg:pb-0">
             <div className="sticky top-16 flex items-start justify-end gap-4 py-4 lg:top-24 lg:py-0">
               <nav className="space-y-4 pt-1 text-right">
-                <p className="text-base font-bold">About</p>
+                <p
+                  className={`text-base font-bold transition ${
+                    onDark ? "text-white" : "text-foreground"
+                  }`}
+                >
+                  About
+                </p>
                 {SECTIONS.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
                     className={`block text-sm leading-snug transition ${
-                      active === s.id
+                      onDark
+                        ? s.id === active
+                          ? "font-semibold text-white"
+                          : "text-white/60 hover:text-white"
+                        : active === s.id
                         ? "font-semibold text-foreground"
                         : "text-text-secondary hover:text-foreground"
                     }`}
@@ -382,9 +403,15 @@ export default function AboutPage() {
                   </a>
                 ))}
               </nav>
-              <div className="relative h-[420px] w-[3px] flex-shrink-0 rounded-full bg-surface-border">
+              <div
+                className={`relative h-[420px] w-[3px] flex-shrink-0 rounded-full transition-colors ${
+                  onDark ? "bg-white/20" : "bg-surface-border"
+                }`}
+              >
                 <div
-                  className="absolute left-0 top-0 w-full rounded-full bg-foreground transition-all"
+                  className={`absolute left-0 top-0 w-full rounded-full transition-all ${
+                    onDark ? "bg-white" : "bg-foreground"
+                  }`}
                   style={{ height: `${Math.max(6, progress * 100)}%` }}
                 />
               </div>
