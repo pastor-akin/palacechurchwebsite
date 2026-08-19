@@ -16,6 +16,12 @@ export const SERVICE_TIMES = [
   { day: "Wednesday", time: "7:00 PM", type: "Bible Study" },
 ];
 
+export const APP_LINKS = {
+  appStore: "https://apps.apple.com/us/app/palace-church/id6775447385",
+  googlePlay:
+    "https://play.google.com/store/apps/details?id=com.palacechurch.boston",
+};
+
 export const GROUPS = [
   {
     id: "1",
@@ -59,6 +65,16 @@ export const MINISTRIES = [
       "Our Prayer Ministry exists to seek God on behalf of our church, our city, and the nations. Whether it's early morning intercession, corporate prayer nights, or standing with someone through a personal need, this team believes prayer changes things.",
     meetingInfo: "Fridays · 6:30 AM · Sanctuary / Online",
     leader: "Pastor Ruth",
+    hasVideo: false,
+  },
+  {
+    slug: "deliverance",
+    title: "Deliverance Ministry",
+    summary: "Prayer-focused ministry helping people find freedom in Christ.",
+    description:
+      "Our Deliverance Ministry, led by Pastor Akin, walks with people seeking freedom from spiritual, emotional, and generational strongholds through prayer and biblical counsel. Because of the personal nature of this ministry, every request begins with a readiness form completed in the Palace Church app, so our team can prepare to meet you well.",
+    meetingInfo: "By appointment · Requested through the Palace Church app",
+    leader: "Pastor Akin",
     hasVideo: false,
   },
   {

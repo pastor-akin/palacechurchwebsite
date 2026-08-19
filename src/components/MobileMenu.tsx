@@ -211,6 +211,12 @@ const MINISTRIES: Item[] = [
     icon: icon(<circle cx="12" cy="12" r="9" />),
   },
   {
+    label: "Deliverance",
+    subtitle: "",
+    href: "/ministries/deliverance",
+    icon: icon(<circle cx="12" cy="12" r="9" />),
+  },
+  {
     label: "Families",
     subtitle: "",
     href: "/ministries/families",
