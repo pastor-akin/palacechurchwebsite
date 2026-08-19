@@ -106,20 +106,99 @@ export default function AboutPage() {
             </div>
 
             <section id="who-we-are" className="scroll-mt-28">
-              <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
-                Who We Are
-              </h2>
-              <p className="leading-relaxed text-text-secondary">
-                Palace Church is a community in {CHURCH_INFO.location}{" "}
-                passionate about worship, prayer, and connection. We believe
-                church should be a place where anyone can belong, grow, and
-                discover what God has for their life — no matter where
-                they're starting from.
-              </p>
-              <p className="mt-4 leading-relaxed text-text-secondary">
-                We meet at {CHURCH_INFO.address}. You can reach us at{" "}
-                {CHURCH_INFO.phone} or {CHURCH_INFO.email}.
-              </p>
+              <div className="rounded-3xl bg-[#111113] px-6 py-14 text-center text-white sm:px-12 sm:py-20">
+                <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/50">
+                  Who We Are
+                </p>
+                <h2 className="mx-auto max-w-3xl text-3xl font-bold leading-tight sm:text-4xl">
+                  We exist so that people far from God will be raised to life
+                  in Christ.
+                </h2>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mx-auto my-10 h-10 w-10 text-white/40"
+                >
+                  <path d="M12 2v20" />
+                  <path d="M8 6h8" />
+                </svg>
+
+                <div className="grid gap-4 text-left sm:grid-cols-2">
+                  <div className="rounded-2xl bg-white/5 p-6 text-center">
+                    <h3 className="mb-3 text-xl font-bold">Our Beliefs</h3>
+                    <p className="mb-6 text-sm leading-relaxed text-white/60">
+                      What do we believe about God, faith, and the Bible?
+                      Check out how God&apos;s Word guides our beliefs.
+                    </p>
+                    <Link
+                      href="/beliefs"
+                      className="inline-block w-full rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
+                    >
+                      Learn more
+                    </Link>
+                  </div>
+                  <div className="rounded-2xl bg-white/5 p-6 text-center">
+                    <h3 className="mb-3 text-xl font-bold">Our Values</h3>
+                    <p className="mb-6 text-sm leading-relaxed text-white/60">
+                      Learn more about the values that keep us focused on
+                      what truly matters — reaching people with the gospel.
+                    </p>
+                    <Link
+                      href="/beliefs"
+                      className="inline-block w-full rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
+                    >
+                      Learn more
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 rounded-3xl bg-[#111113] px-6 py-14 text-white sm:px-12 sm:py-16">
+                <h2 className="text-2xl font-bold sm:text-3xl">
+                  See What God Can Do Through You
+                </h2>
+                <p className="mt-3 text-lg text-white/70">
+                  We are here to help you deepen your faith and discover your
+                  purpose.
+                </p>
+                <p className="mt-6 leading-relaxed text-white/60">
+                  Since our founding, we&apos;ve witnessed people begin a
+                  relationship with Christ and grow in their faith right here
+                  in {CHURCH_INFO.location}. From meaningful worship to
+                  relatable teaching, you&apos;ll experience hope and
+                  strengthen your faith as you discover who God has made you
+                  to be.
+                </p>
+
+                <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl">
+                  <Image
+                    src="/images/hero-stage.jpg"
+                    alt="Palace Church worship gathering (placeholder — replace with your own photo)"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-10">
+                <p className="leading-relaxed text-text-secondary">
+                  Palace Church is a community in {CHURCH_INFO.location}{" "}
+                  passionate about worship, prayer, and connection. We believe
+                  church should be a place where anyone can belong, grow, and
+                  discover what God has for their life — no matter where
+                  they're starting from.
+                </p>
+                <p className="mt-4 leading-relaxed text-text-secondary">
+                  We meet at {CHURCH_INFO.address}. You can reach us at{" "}
+                  {CHURCH_INFO.phone} or {CHURCH_INFO.email}.
+                </p>
+              </div>
             </section>
 
             <section id="church-experiences" className="scroll-mt-28">
