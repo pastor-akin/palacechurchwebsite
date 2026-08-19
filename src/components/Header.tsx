@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import MobileMenu from "@/components/MobileMenu";
 
 const NAV_LINKS = [
   { href: "/give", label: "Give" },
@@ -10,12 +14,15 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-6 py-4">
         <button
           aria-label="Menu"
-          className="flex h-9 w-9 items-center justify-center text-text-secondary md:hidden"
+          onClick={() => setMenuOpen(true)}
+          className="flex h-9 w-9 items-center justify-center text-text-secondary"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -99,6 +106,8 @@ export default function Header() {
           </svg>
         </Link>
       </div>
+
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
   );
 }
