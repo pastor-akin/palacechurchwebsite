@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --primary: #F0501E;
+  --primary-light: #F97A4D;
+  --primary-dark: #C23E14;
+  --surface: #F7F7F8;
+  --surface-elevated: #F0F0F2;
+  --surface-border: #E5E5E8;
+  --text-secondary: #55565C;
+  --text-muted: #8A8B92;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-border: var(--surface-border);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #F0501E, #F97A4D);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
