@@ -90,9 +90,9 @@ export default function AboutPage() {
       <main className="flex-1">
         <div
           ref={contentRef}
-          className="mx-auto grid max-w-6xl gap-8 px-6 py-10 lg:grid-cols-[1fr_240px]"
+          className="mx-auto grid max-w-6xl gap-2 px-6 py-6 lg:grid-cols-[1fr_240px] lg:gap-8 lg:py-10"
         >
-          <div className="space-y-20">
+          <div className="order-2 space-y-20 lg:order-1">
             <div className="relative overflow-hidden rounded-3xl">
               <div className="relative aspect-[16/8] w-full">
                 <Image
@@ -285,9 +285,9 @@ export default function AboutPage() {
             </section>
           </div>
 
-          <aside className="hidden lg:block">
-            <div className="sticky top-24 flex items-start gap-4">
-              <nav className="space-y-4 pt-1">
+          <aside className="order-1 border-b border-surface-border pb-4 lg:order-2 lg:border-b-0 lg:pb-0">
+            <div className="sticky top-16 flex items-start justify-end gap-4 py-4 lg:top-24 lg:py-0">
+              <nav className="space-y-4 pt-1 text-right">
                 <p className="text-base font-bold">About</p>
                 {SECTIONS.map((s) => (
                   <a
