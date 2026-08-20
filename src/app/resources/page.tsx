@@ -84,12 +84,22 @@ export default function ResourcesPage() {
                   {course.description}
                 </p>
 
-                <Link
-                  href={`/signup?course=${course.id}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
-                >
-                  Sign Up to Access
-                </Link>
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  {course.modules && course.modules.length > 0 ? (
+                    <Link
+                      href={`/resources/${course.id}`}
+                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-surface-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-surface-elevated"
+                    >
+                      Preview Course
+                    </Link>
+                  ) : null}
+                  <Link
+                    href={`/signup?course=${course.id}`}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
+                  >
+                    Sign Up to Access
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
