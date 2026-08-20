@@ -144,7 +144,18 @@ export type CourseModule = {
   steps: CourseStep[];
 };
 
-export const COURSES = [
+export type Course = {
+  id: string;
+  title: string;
+  description: string;
+  badge: string;
+  color: string;
+  duration?: string;
+  link: string;
+  modules?: CourseModule[];
+};
+
+export const COURSES: Course[] = [
   {
     id: "1",
     title: "Fasting 101",
