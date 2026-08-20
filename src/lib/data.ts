@@ -130,6 +130,49 @@ export const MINISTRIES = [
   },
 ];
 
+// Pulled from the Palace Church app's Resources page (app/resources.tsx).
+// Real course content lives on palacechurch.boston's "challenge-page" links.
+// Access is gated behind an account — guests can see the overview below,
+// but need to sign up to actually start a course.
+export const COURSES = [
+  {
+    id: "1",
+    title: "Fasting 101",
+    description:
+      "A brief course examining fasting from a scriptural perspective.",
+    badge: "Foundation",
+    color: "#7C3AED",
+    link: "https://www.palacechurch.boston/challenge-page/89250d65-bb3f-4766-ae38-4da48430c754?programId=89250d65-bb3f-4766-ae38-4da48430c754",
+  },
+  {
+    id: "2",
+    title: "Serving at Palace Church",
+    description:
+      "Discover your gifts and learn how to lead with integrity, humility, and biblical wisdom.",
+    badge: "Volunteers",
+    color: "#3B82F6",
+    link: "https://www.palacechurch.boston/challenge-page/3d4aa3d3-a230-442d-9851-9d75c6b8502e?programId=3d4aa3d3-a230-442d-9851-9d75c6b8502e",
+  },
+  {
+    id: "3",
+    title: "Christian 101 + Baptism",
+    description:
+      "Biblical foundations for new believers, plus everything you need to know about baptism at Palace Church.",
+    badge: "Foundation",
+    color: "#10B981",
+    link: "https://www.palacechurch.boston/challenge-page/55a93a56-b015-42a2-92b0-08fae86da3f7?programId=55a93a56-b015-42a2-92b0-08fae86da3f7",
+  },
+  {
+    id: "4",
+    title: "Child Safe Class",
+    description:
+      "Required training for anyone serving in Palace Kidz, covering our child safety policies and procedures.",
+    badge: "Children",
+    color: "#EC4899",
+    link: "https://www.palacechurch.boston/challenge-page/c2523d00-6bb8-4ac8-ab71-c6ec413f7531?programId=c2523d00-6bb8-4ac8-ab71-c6ec413f7531",
+  },
+];
+
 export const GIVING_PLATFORMS = [
   {
     id: "cashapp",
